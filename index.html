@@ -9,12 +9,36 @@
 <body>
   <div class="container">
     <h1>Todo List</h1>
-    <form id="todo-form">
-      <input type="text" id="todo-input" placeholder="Add a new task..." autocomplete="off" />
-      <button type="submit">Add</button>
+    <form id="todo-form" role="form" aria-label="Add a new task">
+      <input
+        type="text"
+        id="todo-input"
+        placeholder="What needs to be done?"
+        autocomplete="off"
+        aria-label="Task description"
+      />
+      <button type="submit" aria-label="Add task">Add</button>
     </form>
-    <ul id="todo-list"></ul>
-    <p id="empty-msg">No tasks yet. Add one above!</p>
+
+    <nav class="filters" aria-label="Filter tasks">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="active">Active</button>
+      <button class="filter-btn" data-filter="completed">Completed</button>
+    </nav>
+
+    <ul id="todo-list" role="list" aria-label="Tasks"></ul>
+
+    <p id="empty-msg" class="hidden" aria-live="polite">
+      <span class="empty-icon" aria-hidden="true">&#128221;</span>
+      <span class="empty-text">No tasks yet. Add one above!</span>
+    </p>
+
+    <footer id="todo-footer" class="hidden">
+      <span id="task-counter" aria-live="polite"></span>
+      <button id="clear-completed" class="hidden" aria-label="Clear completed tasks">
+        Clear completed
+      </button>
+    </footer>
   </div>
   <script src="app.js"></script>
 </body>
